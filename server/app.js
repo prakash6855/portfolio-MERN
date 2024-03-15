@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 dotenv.config({ path: "./config.env" });
+// const User=require('./model/userSchema');
 //Middleware
 const middleware = (req, res, next) => {
   console.log("Hello middleware");
