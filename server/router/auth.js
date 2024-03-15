@@ -40,7 +40,25 @@ router.post("/register", async (req, res) => {
     }
     const user = new User({ name, email, phone, work, password, cpassword });
     await user.save();
-      res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ message: "User registered successfully" });
+  } catch (err) {
+    console.log(err);
+  }
+});
+//login route
+router.post("/signin", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: "Please fill in the data" });
+    }
+    const userLogin =await User.findOne({ email: email });
+    console.log(userLogin);
+    if(!userLogin){
+      res.status(400).json({error:"user error"});
+    }else{
+      res.json({message:"User signin successfully"});
+    }
   } catch (err) {
     console.log(err);
   }
