@@ -4,6 +4,9 @@ const express = require("express");
 const app = express();
 dotenv.config({ path: "./config.env" });
 // const User=require('./model/userSchema');
+app.use(express.json());
+// We link our router file to make our route easy
+app.use(require("./router/auth"));
 //Middleware
 const middleware = (req, res, next) => {
   console.log("Hello middleware");
@@ -20,9 +23,9 @@ db.once("open", () => {
     console.log(`Server is running on port ${PORT}`);
   });
 });
-app.get("/", (req, res) => {
-  res.send("Hello world from server");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hello world from server");
+// });
 app.get("/about-me", middleware, (req, res) => {
   console.log("Hello my about");
   res.send("About-me");
