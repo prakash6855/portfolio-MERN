@@ -27,7 +27,7 @@ db.once("open", () => {
 //   res.send("Hello world from server");
 // });
 app.get("/about-me", middleware, (req, res) => {
-  console.log("Hello my about");
+  console.log("Hello, about me");
   res.send("About-me");
 });
 app.get("/contact", (req, res) => {
