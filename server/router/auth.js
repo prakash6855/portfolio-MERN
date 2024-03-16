@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
@@ -37,12 +38,12 @@ router.post("/register", async (req, res) => {
     const userExist = await User.findOne({ email: email });
     if (userExist) {
       return res.status(422).json({ error: "Email already exists" });
-    }else if(password!=cpassword){
+    } else if (password != cpassword) {
       return res.status(422).json({ error: "Password not match" });
-    }else{
+    } else {
       const user = new User({ name, email, phone, work, password, cpassword });
-    await user.save();
-    res.status(201).json({ message: "User registered successfully" });
+      await user.save();
+      res.status(201).json({ message: "User registered successfully" });
     }
   } catch (err) {
     console.log(err);
@@ -51,21 +52,24 @@ router.post("/register", async (req, res) => {
 //login route
 router.post("/signin", async (req, res) => {
   try {
+    let token;
     const { email, password } = req.body;
     if (!email || !password) {
-      return res.status(400).json({ error: "Please fill in the data" });  
+      return res.status(400).json({ error: "Please fill in the data" });
     }
-    const userLogin =await User.findOne({ email: email });
+    const userLogin = await User.findOne({ email: email });
     // console.log(userLogin);
-    if(userLogin){
+    if (userLogin) {
       const isMatch = await bcrypt.compare(password, userLogin.password);
-      if(!isMatch){
-        res.status(400).json({error:"Invalid credentials"});
-      }else{
-        res.json({message:"User signin successfully"});
+      token = await userLogin.generateAuthToken();
+      console.log(token);
+      if (!isMatch) {
+        res.status(400).json({ error: "Invalid credentials" });
+      } else {
+        res.json({ message: "User signin successfully" });
       }
-    }else{  
-      res.status(400).json({error:"Invalid credentials"});
+    } else {
+      res.status(400).json({ error: "Invalid credentials" });
     }
   } catch (err) {
     console.log(err);
