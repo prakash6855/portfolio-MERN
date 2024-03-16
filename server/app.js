@@ -31,6 +31,7 @@ app.get("/about-me", middleware, (req, res) => {
   res.send("About-me");
 });
 app.get("/contact", (req, res) => {
+  res.cookie("test", 'prakash');
   res.send("Contact");
 });
 app.get("/login", (req, res) => {
