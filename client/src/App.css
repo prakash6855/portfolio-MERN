@@ -16,15 +16,18 @@
 html {
   font-size: 62.5%;
 }
+
 body {
   margin: 0;
   min-height: 100vh;
 }
+
 h1 {
   font-size: 5.4rem;
   line-height: 1.1;
   font-weight: bold;
 }
+
 p,
 li,
 label,
@@ -35,6 +38,7 @@ textarea {
   letter-spacing: 0.1rem;
   word-spacing: 0.06rem;
 }
+
 a {
   font-weight: 500;
   font-size: 1.8rem;
@@ -42,9 +46,11 @@ a {
   color: var(--btn-color);
   text-decoration: inherit;
 }
+
 li {
   list-style: none;
 }
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -58,26 +64,32 @@ li {
     background-color: #f9f9f9;
   }
 }
+
 .signup-content {
   display: flex;
   justify-content: space-between;
 }
+
 .signup-form {
   flex: 1;
   margin-right: 2rem;
 }
+
 .signup-image {
   flex: 1;
   display: flex;
   align-items: center;
 }
+
 .signup-image img {
   max-width: 100%;
   height: auto;
 }
+
 .signin-content {
   display: flex;
 }
+
 .signin-content {
   display: flex;
   justify-content: space-between;
@@ -85,13 +97,14 @@ li {
 
 .signin-image {
   flex: 1;
-  margin-right: 2rem; 
+  margin-right: 2rem;
 }
 
 .signin-image img {
   max-width: 150%;
   height: auto;
 }
+
 .signin-form {
   flex: max-content;
   padding: 6rem;
@@ -99,12 +112,67 @@ li {
 
 .signin-form input[type="text"],
 .signin-form input[type="password"] {
-  width: 110%;
-  padding: 1px; 
+  width: 80%;
+  padding: 4px;
+  margin-right: 1rem;
 }
+
 .signin-form .form-submit {
-  padding: 1rem 1.5rem; /* Adjust the padding to your liking */
-  font-size: 1.2rem; /* Adjust the font size to make the text larger */
+  padding: 1rem 1.5rem;
+  font-size: 1.5rem;
 }
 
+.contact-info {
+  background-color: var(--bg-color);
+  padding: 4rem 0;
+}
 
+.contact_info_item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.contact_info_item img {
+  margin-right: 1rem;
+}
+
+.contact_form_title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="number"],
+.contact-form textarea {
+  width: 50%;
+  height: 30px;
+  margin-right: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-form textarea {
+  width: 50%;
+  height: 10%;
+}
+
+.contact_form_button {
+  margin-top: 1rem;
+}
+
+.contact_submit_button {
+  font-size: 1.5rem;
+}
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.home-div {
+  text-align: center;
+}
