@@ -176,3 +176,12 @@ li {
 .home-div {
   text-align: center;
 }
+.profile-work p,a{
+  font-size: 18px;
+}
+.col-md-6 label{
+  font-size: 13px;
+}
+.row p{
+  font-size: 13px;
+}
